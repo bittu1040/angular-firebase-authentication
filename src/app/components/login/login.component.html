@@ -1,0 +1,12 @@
+
+<form [formGroup]="SigninForm" (ngSubmit)="login(SigninForm)">
+    <div class="container">
+      <label>Username</label>
+      <input type="text" placeholder="Enter Username"  formControlName="username">
+  
+      <label>Password</label>
+      <input type="password" placeholder="Enter Password" formControlName="password">
+  
+      <button type="submit">Login</button>
+    </div>
+  </form>
