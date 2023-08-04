@@ -1,12 +1,24 @@
+  <div class="login-container">
+      <mat-card style="width: 24rem; display: flex;  justify-content: center; height: 18rem; align-items: center;">
+        <div style="font-size: 1.5rem; margin-bottom: 14px;">Login </div>
+        <form style="width: 22rem;" [formGroup]="loginForm" #formDirective="ngForm" (ngSubmit)="login(loginForm)">
+          <mat-form-field>
+            <mat-icon matPrefix>person_outline</mat-icon>
+            <input autofocus type="text" matInput placeholder="Username" formControlName="username">
+          </mat-form-field>
 
-<form [formGroup]="SigninForm" (ngSubmit)="login(SigninForm)">
-    <div class="container">
-      <label>Username</label>
-      <input type="text" placeholder="Enter Username"  formControlName="username">
+          <mat-form-field>
+            <mat-icon matPrefix>lock_outline</mat-icon>
+            <input type="password" matInput placeholder="Password" formControlName="password">
+          </mat-form-field>
+
+          <button type="submit" mat-raised-button color="primary">Login</button>
+        </form>
+        <br>
+        <span> If you don't have a account yet please <a routerLink='/register'>Register Here</a></span>
+      </mat-card>
+  </div>
+
+
+
   
-      <label>Password</label>
-      <input type="password" placeholder="Enter Password" formControlName="password">
-  
-      <button type="submit">Login</button>
-    </div>
-  </form>

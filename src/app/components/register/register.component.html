@@ -1,11 +1,18 @@
-<form [formGroup]="SignupForm" (ngSubmit)="register(SignupForm)">
-    <div class="container">
-      <label>Username</label>
-      <input type="text" placeholder="Enter Username"  formControlName="username">
-  
-      <label>Password</label>
-      <input type="password" placeholder="Enter Password" formControlName="password">
-  
-      <button type="submit">register</button>
-    </div>
-  </form>
+<div class="login-container">
+  <mat-card style="width: 24rem; display: flex;  justify-content: center; height: 16rem; align-items: center;">
+    <div style="font-size: 1.5rem; margin-bottom: 14px;">Register </div>
+    <form style="width: 22rem;" [formGroup]="SignupForm" #formDirective="ngForm" (ngSubmit)="register(SignupForm)">
+      <mat-form-field>
+        <mat-icon matPrefix>person_outline</mat-icon>
+        <input autofocus type="text" matInput placeholder="Username" formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-icon matPrefix>lock_outline</mat-icon>
+        <input type="password" matInput placeholder="Password" formControlName="password">
+      </mat-form-field>
+
+      <button type="submit" mat-raised-button color="primary">Register</button>
+    </form>
+  </mat-card>
+</div>

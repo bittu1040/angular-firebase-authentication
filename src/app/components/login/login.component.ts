@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
 
-  SigninForm!: FormGroup;
+  loginForm!: FormGroup;
 
   constructor(private router: Router, private fb: FormBuilder, private authService: AuthService){
 
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(){
-    this.SigninForm = this.fb.group({
+    this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', [Validators.required]],
     });

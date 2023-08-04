@@ -12,7 +12,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AuthService } from './services/auth.service';
-import { Auth } from '@angular/fire/auth';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
+
+
 
 const config = {
   apiKey: "AIzaSyBGi3xtj_pJxMnN7zepHSfZuiVnpfuiRTY",
@@ -35,6 +45,13 @@ const config = {
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(config),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
