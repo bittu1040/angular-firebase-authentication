@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,10 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder, private authService: AuthService){
+  constructor(private router: Router, private fb: FormBuilder, private authService: AuthService, private shared: SharedService){
+
+    this.shared.logoutButtonFlag.next(false);
+    this.shared.loginButtonFlag.next(false);
 
   }
 
@@ -31,6 +35,7 @@ export class LoginComponent implements OnInit {
     this.authService.SignInCopy(data.value.username, data.value.password)
     .then((result)=>{
       if(result){
+        window.alert("login success")
         this.router.navigate(['dashboard']);
       }
     })

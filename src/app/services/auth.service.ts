@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Observable } from 'rxjs';
 
 
 
@@ -14,21 +14,6 @@ export class AuthService {
    }
  
 
-   SignIn(email: string, password: string) {
-    return this.afAuth
-      .signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.afAuth.authState.subscribe((user) => {
-          if (user) {
-            this.router.navigate(['dashboard']);
-          }
-        });
-      })
-      .catch((error) => {
-        window.alert(error.message);
-      });
-  }
-
 
   SignInCopy(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
@@ -40,12 +25,25 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         window.alert("resigter success")
+        this.router.navigate(['login']);
       })
       .catch((error) => {
         window.alert(error.message);
       });
   }
 
+    signOut(): Promise<void> {
+      return this.afAuth.signOut();
+    }
+  
+    // Get the currently logged-in user
+    getCurrentUser(): Observable<any> {
+      return this.afAuth.user;
+    }
+
+    isLoggedIn(): Observable<any> {
+      return this.afAuth.user;
+    }
 
 
 }

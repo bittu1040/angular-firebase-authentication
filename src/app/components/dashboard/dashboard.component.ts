@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataService } from 'src/app/services/data.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
   displayedColumns: string[] = ['username','name', 'city', 'age'];
 
-  constructor(private data: DataService) {
+  constructor(private data: DataService, private shared: SharedService) {
 
   }
 
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+    this.shared.logoutButtonFlag.next(true);
   }
 
   getUsers() {

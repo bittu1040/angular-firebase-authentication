@@ -1,4 +1,13 @@
-<div style=" display: flex; justify-content: center;">
+<div style="display:flex; align-items:center; justify-content:center; flex-direction:column; width:100vw; height:90vh;">
+    <div style="font-size: 1.2rem; font-family: 'Times New Roman', Times, serif;">You have successfully logged in: Congrats! You are inside the project,
+        <br> <br>
+    <div>This table data is coming from firebase data base, going further will enhance more features like,</div>
+    <ul>
+        <li>social media login: google/facebook</li>
+        <li>forget password (reset password)</li>
+        <li>protecing routes using auth gaurd- canActivate</li>
+    </ul>
+    </div>
     <div class="table-div">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="username">
@@ -24,6 +33,5 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-
     </div>
 </div>

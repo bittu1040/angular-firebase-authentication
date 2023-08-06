@@ -22,6 +22,9 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { DataService } from './services/data.service';
+import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -41,7 +44,9 @@ const config = {
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    ConfirmDialogComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ const config = {
     MatInputModule, 
     MatTableModule,
     HttpClientModule,
+    MatDialogModule
   ],
   providers: [AuthService, DataService],
   bootstrap: [AppComponent]
