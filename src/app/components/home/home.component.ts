@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(private shared: SharedService){
+
+  }
 
   currentTime="";
   private timer: any;
@@ -21,6 +25,9 @@ export class HomeComponent {
     // this.clockHandle = setInterval(()=>{
     //   this.clock = new Date().toLocaleString();
     // },1000);
+
+    this.shared.loginButtonFlag.next(true);
+
   }
 
   ngOnDestroy(): void {
