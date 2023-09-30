@@ -6,7 +6,7 @@
         <span>Angular Firebase Authentication</span>
         <span class="example-spacer"></span>
         <div  style="display: flex; gap: 10px;">
-        <button *ngIf="!currentLoggedInUserEmail && loginButtonFlag" mat-raised-button color="accent" [routerLink]="['/login']">
+        <button *ngIf="!currentLoggedInUserEmail || loginButtonFlag" mat-raised-button color="accent" [routerLink]="['/login']">
           login
         </button>
         <button *ngIf="currentLoggedInUserEmail && logoutButtonFlag" mat-raised-button color="accent" (click)="confirmLogoutDialog()">

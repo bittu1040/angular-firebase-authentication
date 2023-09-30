@@ -26,7 +26,6 @@ export class HomeComponent {
     //   this.clock = new Date().toLocaleString();
     // },1000);
 
-    this.shared.loginButtonFlag.next(true);
 
   }
 

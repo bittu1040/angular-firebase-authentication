@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   currentLoggedInUserEmail: any;
   logoutButtonFlag: any;
   loginButtonFlag: any;
-  constructor(private authService: AuthService, private router: Router, private dialog: MatDialog, private shared: SharedService) {
+  constructor(private authService: AuthService, private router: Router, private dialog: MatDialog, private shared: SharedService, private cdRef: ChangeDetectorRef) {
 
   }
   ngOnInit() {
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 
     this.shared.loginButtonFlag.subscribe((data) => {
       this.loginButtonFlag = data;
-    })
+      })
 
 
 
@@ -56,6 +56,7 @@ export class AppComponent implements OnInit {
       if (data.clicked === 'submit') {
         this.authService.signOut().then(() => {
           this.router.navigate(['login'])
+          this.shared.loginButtonFlag.next(true)
         })
           .catch((error) => {
             window.alert(error.message)

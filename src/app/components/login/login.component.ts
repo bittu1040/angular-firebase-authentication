@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
       if(result){
         window.alert("login success")
         this.router.navigate(['dashboard']);
+        this.shared.loginButtonFlag.next(false);
       }
     })
     .catch((error)=>{
