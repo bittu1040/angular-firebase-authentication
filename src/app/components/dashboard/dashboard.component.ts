@@ -14,7 +14,7 @@ import { SharedService } from 'src/app/services/shared.service';
 export class DashboardComponent implements OnInit {
 
   dataSource = new MatTableDataSource<any>();
-  displayedColumns: string[] = ['username','name', 'city', 'age'];
+  displayedColumns: string[] = ['name', 'city', 'age'];
 
   constructor(private data: DataService, private shared: SharedService, public dialog: MatDialog, public loaderService: LoaderService) {
 

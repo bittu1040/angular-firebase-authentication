@@ -7,6 +7,7 @@
         <li>forget password (reset password)</li>
         <li>protecing routes using auth gaurd- canActivate</li>
         <li>Will use local storage for better authentication</li>
+        <li>JWT</li>
     </ul>
     </div>
     <div class="table-div">
@@ -15,10 +16,6 @@
             </div>
         <mat-progress-spinner *ngIf="(loaderService.isVisible | async)" mode="indeterminate"></mat-progress-spinner>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-            <ng-container matColumnDef="username">
-                <th mat-header-cell *matHeaderCellDef> username </th>
-                <td mat-cell *matCellDef="let element"> {{element.username}} </td>
-            </ng-container>
 
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> Name </th>

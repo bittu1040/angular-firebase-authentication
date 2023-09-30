@@ -25,20 +25,18 @@ export class UserFormDialogComponent {
     this.userId= data.userId
 
     this.addUserForm = this.fb.group({
-      username: ['', Validators.required],
       name: ['', Validators.required],
       city: ['', Validators.required],
       age: ['', Validators.required],
     });
 
     this.editUserForm= this.fb.group({
-      username:[''],
       name: [''],
       city:[''],
       age: ['']
     })
 
-    // this.getUserDataForEdit();
+    this.getUserDataForEdit();
     
 
   }
