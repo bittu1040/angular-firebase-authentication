@@ -24,7 +24,7 @@ export class DataService {
     let options={
       headers:httpheaders
     };
-    return this.http.post('http://localhost:3000/empDetails', details, options)
+    return this.http.post(this.url+ "/" + "users.json", details, options)
   }
 
   editUserDetails(id: any, user: any){

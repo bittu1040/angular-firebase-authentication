@@ -27,6 +27,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { HomeComponent } from './components/home/home.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { UserFormDialogComponent } from './dialogs/user-form-dialog/user-form-dialog.component';
 
 
 
@@ -48,7 +49,8 @@ const config = {
     RegisterComponent,
     DashboardComponent,
     ConfirmDialogComponent,
-    HomeComponent
+    HomeComponent,
+    UserFormDialogComponent
   ],
   imports: [
     BrowserModule,

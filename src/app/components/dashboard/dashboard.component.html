@@ -10,6 +10,9 @@
     </ul>
     </div>
     <div class="table-div">
+        <div style="margin-bottom: 12px;">
+            <button mat-raised-button color="primary" (click)="redirectToAdd()">Add User</button>
+            </div>
         <mat-progress-spinner *ngIf="(loaderService.isVisible | async)" mode="indeterminate"></mat-progress-spinner>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="username">

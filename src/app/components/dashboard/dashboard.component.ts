@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { UserFormDialogComponent } from 'src/app/dialogs/user-form-dialog/user-form-dialog.component';
 import { DataService } from 'src/app/services/data.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import { SharedService } from 'src/app/services/shared.service';
@@ -35,34 +36,35 @@ export class DashboardComponent implements OnInit {
         element[1].username=element[0]
         modifiedData.push(element[1])
       });
+      console.log("data from firebase",modifiedData)
       this.dataSource = new MatTableDataSource<any>(modifiedData)
 
     })
   }
 
 
-  // redirectToAdd(){
-  //   console.log("add user dialog opened");
-  //   const dialogRef = this.dialog.open(UserFormDialogComponent, {
-  //     width: '350px',
-  //     height: '400px',
-  //     data: {
-  //       editDialog: false
-  //     }
-  //   });
+  redirectToAdd(){
+    console.log("add user dialog opened");
+    const dialogRef = this.dialog.open(UserFormDialogComponent, {
+      width: '350px',
+      height: '400px',
+      data: {
+        editDialog: false
+      }
+    });
     
-  //   dialogRef.afterClosed().subscribe((data) => {
-  //     console.log(data)
-  //     if (data.clicked === 'submit') {
-  //       console.log('Sumbit button clicked');
-  //       console.log("input form data", data.userData.value)
-  //       this.data.addEmpDetails(data.userData.value).subscribe((data)=>{
-  //         console.log("user added successfully")
-  //        this.getUsers();
-  //       })
-  //     }
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe((data) => {
+      console.log(data)
+      if (data.clicked === 'submit') {
+        console.log('Sumbit button clicked');
+        console.log("input form data", data.userData.value)
+        this.data.addEmpDetails(data.userData.value).subscribe((data)=>{
+          console.log("user added successfully")
+         this.getUsers();
+        })
+      }
+    });
+  }
 
   // redirectToEdit(inp:any){
   //   console.log(inp)
