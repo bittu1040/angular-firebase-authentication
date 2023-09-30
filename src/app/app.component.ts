@@ -13,53 +13,54 @@ import { SharedService } from './services/shared.service';
 export class AppComponent implements OnInit {
   title = 'angular-firebase-authentication';
   currentLoggedInUserEmail: any;
-  logoutButtonFlag:any;
-  loginButtonFlag:any;
-  constructor(private authService:AuthService , private router: Router, private dialog: MatDialog, private shared:SharedService){
+  logoutButtonFlag: any;
+  loginButtonFlag: any;
+  constructor(private authService: AuthService, private router: Router, private dialog: MatDialog, private shared: SharedService) {
 
   }
   ngOnInit() {
 
-    this.authService.getCurrentUser().subscribe((data)=>{
-      this.currentLoggedInUserEmail= data
+    this.authService.getCurrentUser().subscribe((data) => {
+      const email = data?.email;
+      this.currentLoggedInUserEmail = email;
     });
 
-    this.shared.logoutButtonFlag.subscribe((data)=>{
-      this.logoutButtonFlag= data;
+    this.shared.logoutButtonFlag.subscribe((data) => {
+      this.logoutButtonFlag = data;
     })
 
-    this.shared.loginButtonFlag.subscribe((data)=>{
-      this.loginButtonFlag= data;
+    this.shared.loginButtonFlag.subscribe((data) => {
+      this.loginButtonFlag = data;
     })
 
 
-    
+
   }
 
 
-  confirmLogoutDialog(){
-      const ref: MatDialogRef<ConfirmDialogComponent> = this.dialog.open(
-        ConfirmDialogComponent,
-        {
-          width: '400px',
-          height: '190px',
-          data: {
-            message: 'Are you sure to logout?',
-          },
-          backdropClass: 'confirmDialogComponent',
-          hasBackdrop: true,
-        }
-      );
+  confirmLogoutDialog() {
+    const ref: MatDialogRef<ConfirmDialogComponent> = this.dialog.open(
+      ConfirmDialogComponent,
+      {
+        width: '400px',
+        height: '190px',
+        data: {
+          message: 'Are you sure to logout?',
+        },
+        backdropClass: 'confirmDialogComponent',
+        hasBackdrop: true,
+      }
+    );
 
-      ref.afterClosed().subscribe((data) => {
-        if (data.clicked === 'submit') {
-          this.authService.signOut().then(()=>{
-            this.router.navigate(['login'])
-          })
-          .catch((error)=>{
+    ref.afterClosed().subscribe((data) => {
+      if (data.clicked === 'submit') {
+        this.authService.signOut().then(() => {
+          this.router.navigate(['login'])
+        })
+          .catch((error) => {
             window.alert(error.message)
           })
-        }
-      });
+      }
+    });
   }
 }
