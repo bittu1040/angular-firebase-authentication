@@ -14,15 +14,15 @@ export class UserFormDialogComponent {
   editUserForm: FormGroup;
   message = '';
   editDialog= false;
-  userId=0;
+  username="";
 
   constructor(private fb: FormBuilder, private dataService: DataService,
     private dialogRef: MatDialogRef<UserFormDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) data: { message: string, editDialog: boolean,userId: number }
+    @Inject(MAT_DIALOG_DATA) data: { message: string, editDialog: boolean,username: string }
   ) {
     this.message = data ? data.message : '';
     this.editDialog= data.editDialog;
-    this.userId= data.userId
+    this.username= data.username
 
     this.addUserForm = this.fb.group({
       name: ['', Validators.required],
@@ -42,14 +42,15 @@ export class UserFormDialogComponent {
   }
 
   getUserDataForEdit(){
-    this.dataService.getUsersData().subscribe((allUserData:any)=>{
-      console.log("id: ", this.userId)
-      allUserData.filter((data:any)=>{
-        if(data.id===this.userId){
-            this.editUserForm.patchValue(data);
-        }
-    })
-    })
+    this.dataService.getUsersData().subscribe((allUserData: any) => {
+      console.log("username: ", this.username);
+      const userData = allUserData[this.username];
+      console.log(userData)
+
+      if (userData) {
+        this.editUserForm.patchValue(userData);
+      }
+    });
   }
 
   submit(form: FormGroup) {

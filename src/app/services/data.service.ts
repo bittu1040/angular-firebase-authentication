@@ -14,8 +14,8 @@ export class DataService {
     return this.http.get(this.url+"/"+ "users.json")
   }
 
-  deleteEmp(id:number){
-    return this.http.delete('http://localhost:3000/empDetails' + "/"+  id)
+  deleteEmp(username:string){
+    return this.http.delete(this.url+"/"+ "users.json" + "/"+  username)
   }
 
   addEmpDetails(details: any){
@@ -28,6 +28,6 @@ export class DataService {
   }
 
   editUserDetails(id: any, user: any){
-    return this.http.put('http://localhost:3000/empDetails' + "/" + id, user)
+    return this.http.put("bbbbbbbbbbbbb"+ "/" + "users.json" + id, user)
   }
 }
