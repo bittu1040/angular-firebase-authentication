@@ -10,6 +10,7 @@
     </ul>
     </div>
     <div class="table-div">
+        <mat-progress-spinner *ngIf="(loaderService.isVisible | async)" mode="indeterminate"></mat-progress-spinner>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="username">
                 <th mat-header-cell *matHeaderCellDef> username </th>

@@ -17,3 +17,11 @@ th.mat-header-cell {
     text-align: left;
     max-width: 300px;
 }
+
+
+mat-progress-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

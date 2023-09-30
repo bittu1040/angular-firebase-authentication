@@ -19,12 +19,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { DataService } from './services/data.service';
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HomeComponent } from './components/home/home.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 
 
@@ -62,9 +64,13 @@ const config = {
     MatInputModule, 
     MatTableModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
-  providers: [AuthService, DataService],
+  providers: [AuthService, DataService,
+    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true}
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

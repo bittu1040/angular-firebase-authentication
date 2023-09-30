@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataService } from 'src/app/services/data.service';
+import { LoaderService } from 'src/app/services/loader.service';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class DashboardComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
   displayedColumns: string[] = ['username','name', 'city', 'age'];
 
-  constructor(private data: DataService, private shared: SharedService) {
+  constructor(private data: DataService, private shared: SharedService, public loaderService: LoaderService) {
 
   }
 
