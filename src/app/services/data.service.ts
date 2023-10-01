@@ -37,7 +37,7 @@ export class DataService {
  * @returns {Observable} - An Observable that emits the response from the API.
  */
 editUserDetails(id:any, user:any): Observable<any> {
-  const apiUrl = `${this.url}/users.json/${id}`;
+  const apiUrl = `${this.url}/users/${id}.json`;
   return this.http.put(apiUrl, user);
 }
 }

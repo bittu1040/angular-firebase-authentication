@@ -85,7 +85,7 @@ export class DashboardComponent implements OnInit {
         console.log("input form data", data.userData.value)
         this.data.editUserDetails(inp, data.userData.value).subscribe((data)=>{
           console.log("user updated successfully")
-          // this.getUsers();
+          this.getUsers();
         })
       }
     });
