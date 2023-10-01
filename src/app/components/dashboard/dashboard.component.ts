@@ -109,7 +109,8 @@ export class DashboardComponent implements OnInit {
     ref.afterClosed().subscribe((data) => {
       console.log(data);
       if(data.clicked==="submit"){
-        this.data.deleteEmp(inp).subscribe((data)=>{
+        this.data.deleteUser(inp)
+        .subscribe((data)=>{
           console.log("delete sucess");
         this.getUsers();
         })

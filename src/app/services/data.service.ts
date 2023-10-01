@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,10 @@ export class DataService {
     return this.http.get(this.url+"/"+ "users.json")
   }
 
-  deleteEmp(username:string){
-    return this.http.delete(this.url+"/"+ "users.json" + "/"+  username)
+  deleteUser(username:string){
+    // const url = `${this.url}/users/${username}.json`;
+    // return this.http.delete(url);
+    return this.http.delete(this.url+ "/" + "users" + "/" + username + ".json")
   }
 
   addEmpDetails(details: any){
@@ -27,7 +30,14 @@ export class DataService {
     return this.http.post(this.url+ "/" + "users.json", details, options)
   }
 
-  editUserDetails(id: any, user: any){
-    return this.http.put("bbbbbbbbbbbbb"+ "/" + "users.json" + id, user)
-  }
+/**
+ * Edit user details by sending a PUT request to the API.
+ * @param {any} id - The ID of the user to be edited.
+ * @param {any} user - The updated user details.
+ * @returns {Observable} - An Observable that emits the response from the API.
+ */
+editUserDetails(id:any, user:any): Observable<any> {
+  const apiUrl = `${this.url}/users.json/${id}`;
+  return this.http.put(apiUrl, user);
+}
 }
