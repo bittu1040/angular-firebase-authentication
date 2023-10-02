@@ -1,3 +1,21 @@
-.example-spacer {
-    flex: 1 1 auto;
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-toolbar .left,
+mat-toolbar .right {
+  display: flex;
+  align-items: center;
+}
+
+  @media (max-width: 460px) {
+    mat-toolbar {
+        flex-direction: column;
+    }
+    mat-toolbar .right {
+      margin-top: 20px;
+    }
+
   }

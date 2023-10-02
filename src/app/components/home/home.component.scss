@@ -1,16 +1,45 @@
 .clock {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #333;
-    background-color: #f0f0f0;
-    padding: 60px;
-    border-radius: 5px;
-  }
+  font-size: 4vw;
+  font-weight: bold;
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 5%; 
+  border-radius: 5px;
+  text-align: center; 
+}
 
-  .clock-page{
-    width: 100vw;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.clock-page {
+  width: 100%;
+  height: 91vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .clock {
+      border: 2px solid red;
   }
+}
+
+/* Medium screens */
+@media (min-width: 481px) and (max-width: 768px) {
+  .clock {
+      border: 2px solid blue;
+  }
+}
+
+/* Large screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .clock {
+      border: 2px solid green;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1025px) {
+  .clock {
+      border: 2px solid orange;
+  }
+}
