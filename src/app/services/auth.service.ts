@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  constructor( public afAuth: AngularFireAuth, public router: Router) {
-   }
- 
+  constructor(public afAuth: AngularFireAuth, public router: Router) {
+  }
+
 
 
   SignIn(email: string, password: string) {
@@ -24,18 +24,18 @@ export class AuthService {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
   }
 
-    signOut(): Promise<void> {
-      return this.afAuth.signOut();
-    }
-  
-    // Get the currently logged-in user
-    getCurrentUser(): Observable<any> {
-      return this.afAuth.user;
-    }
+  signOut(): Promise<void> {
+    return this.afAuth.signOut();
+  }
 
-    isLoggedIn(): Observable<any> {
-      return this.afAuth.user;
-    }
+  // Get the currently logged-in user
+  getCurrentUser(): Observable<any> {
+    return this.afAuth.user;
+  }
+
+  isLoggedIn(): Observable<any> {
+    return this.afAuth.user;
+  }
 
 
 }

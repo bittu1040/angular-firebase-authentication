@@ -55,7 +55,8 @@ export class AppComponent implements OnInit {
     ref.afterClosed().subscribe((data) => {
       if (data.clicked === 'submit') {
         this.authService.signOut().then(() => {
-          this.router.navigate(['login'])
+          this.router.navigate(['login']);
+          localStorage.removeItem('isLoggedIn');
           this.shared.loginButtonFlag.next(true)
         })
           .catch((error) => {

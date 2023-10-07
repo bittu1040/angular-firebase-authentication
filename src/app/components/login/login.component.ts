@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         window.alert("login success")
         this.router.navigate(['dashboard']);
         this.shared.loginButtonFlag.next(false);
+        localStorage.setItem('isLoggedIn', 'true');
       }
     })
     .catch((error)=>{
