@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   login(data:FormGroup){
     console.log(data.value)
-    this.authService.SignInCopy(data.value.username, data.value.password)
+    this.authService.SignIn(data.value.username, data.value.password)
     .then((result)=>{
       if(result){
         window.alert("login success")

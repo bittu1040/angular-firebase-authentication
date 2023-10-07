@@ -31,7 +31,14 @@ export class RegisterComponent {
 
   register(data:FormGroup){
     console.log(data.value)
-    this.authService.SignUp(data.value.username, data.value.password)
+    this.authService.SignUp(data.value.username, data.value.password) 
+    .then((result) => {
+      window.alert("resigter success")
+      this.router.navigate(['login']);
+    })
+    .catch((error) => {
+      window.alert(error.message);
+    });
 
     }
 }

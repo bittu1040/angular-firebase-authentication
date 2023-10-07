@@ -15,21 +15,13 @@ export class AuthService {
  
 
 
-  SignInCopy(email: string, password: string) {
+  SignIn(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
   }
 
 
   SignUp(email: string, password: string) {
-    return this.afAuth
-      .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        window.alert("resigter success")
-        this.router.navigate(['login']);
-      })
-      .catch((error) => {
-        window.alert(error.message);
-      });
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
   }
 
     signOut(): Promise<void> {
