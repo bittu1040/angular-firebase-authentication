@@ -3,7 +3,7 @@ https://angular-firebase-authentication.vercel.app
 
 # AngularFirebaseAuthentication
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+This project was generated  with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
 
 ## Development server
 
