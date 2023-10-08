@@ -2,7 +2,35 @@
     margin: 16px;
 }
 
-.skills{
+.skills-heading{
     display: flex;
     justify-content: space-evenly;
 }
+
+.skill {
+    position: relative;
+    display: inline-block; 
+    cursor: pointer; 
+    font-size: 1.5rem;
+    background: #f4f1f1;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .skill::before {
+    content: "";
+    position: absolute; 
+    bottom: 0;
+    left: 0; 
+    top: 32px;
+    width: 100%; 
+    height: 2px; 
+    background-color: #5ebde2; 
+    transform: scaleX(0); 
+    transform-origin: left; 
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .skill:hover::before {
+    transform: scaleX(1); 
+  }

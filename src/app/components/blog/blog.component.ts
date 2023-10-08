@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class BlogComponent {
 
+
+  progressValue: number = 0; // Default value of 0 for the progress bar
+
+  updateProgressBar(value: number): void {
+    this.progressValue = value;
+  }
 }
