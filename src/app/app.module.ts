@@ -31,6 +31,7 @@ import { UserFormDialogComponent } from './dialogs/user-form-dialog/user-form-di
 import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -73,7 +74,8 @@ const config = {
     MatTableModule,
     HttpClientModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   providers: [AuthService, DataService,
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true}
