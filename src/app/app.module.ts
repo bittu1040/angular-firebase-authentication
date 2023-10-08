@@ -29,6 +29,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { UserFormDialogComponent } from './dialogs/user-form-dialog/user-form-dialog.component';
 import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 
@@ -52,7 +54,9 @@ const config = {
     ConfirmDialogComponent,
     HomeComponent,
     UserFormDialogComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    BlogComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
