@@ -1,8 +1,15 @@
 <div class="blog-container">
     <div class="skills-heading">
-        <div class="skill">All</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">Angular</div>
-        <div class="skill">CSS</div>
+        <div class="skill" (click)="showAll()" [ngClass]="{ 'active': selectedCategory === 'All' }">All</div>
+        <div class="skill" (click)="filterCategory('js')" [ngClass]="{ 'active': selectedCategory === 'js' }">JavaScript</div>
+        <div class="skill" (click)="filterCategory('angular')" [ngClass]="{ 'active': selectedCategory === 'angular' }">Angular</div>
+        <div class="skill" (click)="filterCategory('css')" [ngClass]="{ 'active': selectedCategory === 'css' }">CSS</div>
     </div>
+
+    <div class="box-container">
+        <div class="box" *ngFor="let box of boxes" [style.display]="box.visible ? 'block' : 'none'">
+          <h2>{{ box.category }}</h2>
+          <p>This is some content for {{ box.category }}.</p>
+        </div>
+      </div>
 </div>
