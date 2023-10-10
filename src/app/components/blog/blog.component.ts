@@ -39,3 +39,11 @@ export class BlogComponent implements OnInit {
     });
   }
 }
+
+
+// selected button highligt 
+// add pagination in case of more than 10 blogs
+// create different ts file for all data
+// pass data through routig
+// Add tabs in place of skills button
+

@@ -38,10 +38,11 @@
   .box-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   
   .box {
-    width: calc(33.33% - 150px); /* Adjust the width as needed for your layout */
+    width: calc(33.33% - 150px);
     margin: 10px;
     padding: 15px;
     border: 1px solid #ccc;
@@ -50,7 +51,6 @@
     border-radius: 5px;
   }
   
-  /* Media query for responsiveness */
   @media (max-width: 768px) {
     .box {
       width: calc(50% - 20px);
