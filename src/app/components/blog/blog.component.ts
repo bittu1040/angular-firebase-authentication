@@ -23,6 +23,8 @@ export class BlogComponent implements OnInit {
     { category: 'css', visible: false },
   ];
 
+  pages: number[] = [1,2,3];
+  
   ngOnInit(): void {
     this.showAll()
   }
@@ -37,6 +39,18 @@ export class BlogComponent implements OnInit {
     this.boxes.forEach(box => {
       box.visible = box.category === category;
     });
+  }
+
+  previousPage() {
+    // Handle logic to go to the previous page
+  }
+  
+  nextPage() {
+    // Handle logic to go to the next page
+  }
+  
+  goToPage(page: number) {
+    // Handle logic to go to a specific page
   }
 }
 
