@@ -46,4 +46,5 @@ export class BlogComponent implements OnInit {
 // create different ts file for all data
 // pass data through routig
 // Add tabs in place of skills button
+// implement search feature in nav bar
 
