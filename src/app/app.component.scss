@@ -1,17 +1,39 @@
-mat-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+// mat-toolbar {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
 
-mat-toolbar .left,
-mat-toolbar .right {
-  display: flex;
-  align-items: center;
-}
+// mat-toolbar .left,
+// mat-toolbar .right {
+//   display: flex;
+//   align-items: center;
+// }
 
 @media (max-width: 460px) {
   mat-toolbar {
     font-size: 1rem;
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+@media only screen and (max-width: 600px) {
+  #menu-button {
+    display: block;
+  }
+  #about-button, #blog-button {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  #menu-button {
+    display: none;
+  }
+  #about-button, #blog-button {
+    display: block;
   }
 }

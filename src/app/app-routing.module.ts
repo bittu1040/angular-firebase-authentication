@@ -7,6 +7,7 @@ import { authGaurdGuard } from './gaurds/auth-gaurd.guard';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate:[authGaurdGuard] },
   { path: 'blog', component: BlogComponent},
+  { path: 'about', component: AboutComponent},
   { path: '**', component:PageNotFoundComponent},
 ];
 

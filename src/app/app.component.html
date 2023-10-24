@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
   <div class="left">
     <button mat-icon-button [routerLink]="['/home']">
       <mat-icon>home</mat-icon>
@@ -18,10 +18,38 @@
     </button>
   </div>
 
+</mat-toolbar> -->
+
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()" id="menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Blog App</span>
+  <span class="example-spacer"></span>
+  <button style="margin-right: 8px;" routerLink="/about" mat-raised-button color="accent" id="about-button">
+    About
+  </button>
+  <button style="margin-right: 8px;" mat-raised-button color="accent" [routerLink]="['/blog']" id="blog-button">
+    Blog
+  </button>
+  <button *ngIf="!currentLoggedInUserEmail || loginButtonFlag" mat-raised-button color="accent"
+  [routerLink]="['/login']">
+  login
+</button>
+<button *ngIf="currentLoggedInUserEmail && logoutButtonFlag" mat-raised-button color="accent"
+  (click)="confirmLogoutDialog()">
+  Logout
+</button>
 </mat-toolbar>
 
-
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
-
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/about">About</a>
+      <a mat-list-item routerLink="/blog">Blog</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

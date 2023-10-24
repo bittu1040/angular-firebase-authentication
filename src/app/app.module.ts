@@ -32,6 +32,10 @@ import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.com
 import { BlogComponent } from './components/blog/blog.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { AboutComponent } from './components/about/about.component';
 
 
 
@@ -57,7 +61,8 @@ const config = {
     UserFormDialogComponent,
     DeleteDialogComponent,
     BlogComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,11 @@ const config = {
     HttpClientModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSidenavModule,
+    MatExpansionModule
   ],
   providers: [AuthService, DataService,
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true}

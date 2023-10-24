@@ -9,3 +9,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-bg-primary{
   background-color: #3f51b5 !important;
 }
+
+
+.component-content{
+  display: flex;
+  // margin: 0 auto;
+  border: 1px solid rgb(236, 232, 232);
+  padding: 20px;
+  border-radius: 5px;
+  height: 92vh;
+}
